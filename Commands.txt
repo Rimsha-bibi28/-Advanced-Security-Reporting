@@ -1,0 +1,63 @@
+ Week 3 Security Lab – Commands Used
+
+ 1. Basic Penetration Testing
+ Run Nmap basic scan
+nmap -sC -sV -p 3000 127.0.0.1 -oN scans/nmap_basic.txt
+
+ Run Nmap aggressive scan
+nmap -A -p 3000 127.0.0.1 -oN scans/nmap_aggressive.txt
+
+ Check headers
+curl -I http://127.0.0.1:3000 > scans/http_headers.txt
+
+---
+
+ 2. Logging Setup with Winston
+ Initialize Node.js project (if package.json not present)
+npm init -y
+
+ Install Winston
+npm install winston
+
+ Create logger.js file (inside logs/)
+nano logs/logger.js
+
+ Create server.js file (inside logs/ or juice-shop root)
+nano logs/server.js
+
+ Run server manually
+node server.js
+
+ OR run inside juice-shop with logger
+cd ~/juice-shop
+node server.js
+
+ View log output
+cat ~/Desktop/Week3_Security/logs/security.log
+
+---
+
+ 3. Checklist
+ Create the security checklist markdown file
+nano SECURITY_CHECKLIST.md
+
+ Create README
+nano README.md
+
+---
+
+ 4. File Organization
+ Create folder structure
+mkdir -p Week3_Security/{scans,logs}
+
+ Copy Nmap scan results into scans folder
+cp nmap_basic.txt nmap_aggressive.txt Week3_Security/scans/
+
+ Move logger + server into logs folder
+mv logger.js server.js Week3_Security/logs/
+
+---
+
+ Final check log files
+cat Week3_Security/logs/security.log
+cat Week3_Security/SECURITY_CHECKLIST.md
